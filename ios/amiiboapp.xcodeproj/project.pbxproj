@@ -91,7 +91,6 @@
 				6D8C08DCD7C2D24BFFB4CA57 /* Pods-amiiboapp-amiiboappTests.debug.xcconfig */,
 				7B6092AD60A94296D65BE92F /* Pods-amiiboapp-amiiboappTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -106,6 +105,14 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = amiiboapp;
+			sourceTree = "<group>";
+		};
+		18F6538146C64476B1E3786E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -134,6 +141,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				0847EECAB19AAA141DA4F185 /* Pods */,
+				18F6538146C64476B1E3786E /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
