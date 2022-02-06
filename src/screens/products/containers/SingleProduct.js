@@ -133,40 +133,6 @@ const SingleProduct = ({navigation, route: {params}}) => {
 										/\B(?=(\d{3})+(?!\d))/g,
 										'.',
 									)}`}</Text>
-									<Text color="dark.300" mb={2}>
-										{`Serie: ${amiiboSeries}`}
-									</Text>
-									<Text
-										color="dark.300"
-										mb={2}>{`Tipo: ${type}`}</Text>
-									<Text color="dark.300" mb={2}>
-										{`Fecha de lanzamiento: ${moment(
-											release.au,
-										).format('L')}`}
-									</Text>
-									<Text color="dark.300" mb={2}>{`Precio: $${price
-										.toString()
-										.replace(
-											/\B(?=(\d{3})+(?!\d))/g,
-											'.',
-										)}`}</Text>
-										<Text color="dark.300" mb={2}>
-											{`Serie: ${amiiboSeries}`}
-										</Text>
-										<Text
-											color="dark.300"
-											mb={2}>{`Tipo: ${type}`}</Text>
-										<Text color="dark.300" mb={2}>
-											{`Fecha de lanzamiento: ${moment(
-												release.au,
-											).format('L')}`}
-										</Text>
-										<Text color="dark.300" mb={2}>{`Precio: $${price
-											.toString()
-											.replace(
-												/\B(?=(\d{3})+(?!\d))/g,
-												'.',
-											)}`}</Text>
 							</Stack>
 							<Button
 								colorScheme="emerald"
