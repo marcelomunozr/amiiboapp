@@ -28,7 +28,9 @@ const AllProducts = ({navigation}) => {
 	 * Ejecuta método que setea las zapatillas en storage con redux
 	 */
 	const initData = async () => {
-		dispatch(getProductsThunk());
+		if (!arrItems.length) {
+			dispatch(getProductsThunk());
+		}
 	};
 
 	useEffect(() => {

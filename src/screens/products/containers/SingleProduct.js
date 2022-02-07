@@ -13,10 +13,17 @@ import {
 } from 'native-base';
 import moment from 'moment';
 import 'moment/locale/es';
-import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
+import {
+	Dimensions,
+	SafeAreaView,
+	StatusBar,
+	useColorScheme,
+} from 'react-native';
 import AppBar from '../../../commons/components/AppBar';
-import {setCart} from '../../shoppingCart/actions/shoppingCart';
-import { colors } from '../../../commons/utils/utils';
+import {
+	colors,
+} from '../../../commons/utils/utils';
+import ControlsItem from '../../../commons/components/ControlsItem';
 
 moment.locale('es');
 
@@ -24,6 +31,8 @@ const SingleProduct = ({navigation, route: {params}}) => {
 	const {shoppingCart} = useSelector((state) => state.shoppingCart);
 	const dispatch = useDispatch();
 	const isDarkMode = useColorScheme() === 'dark';
+	const win = Dimensions.get('window');
+	const ratio = win.width/500;
 	const {
 		amiiboSeries,
 		character,
@@ -35,43 +44,6 @@ const SingleProduct = ({navigation, route: {params}}) => {
 		type,
 		price,
 	} = params.item;
-
-	const addToCart = () => {
-		try {
-			const arrToCart = [...shoppingCart, tail];
-			dispatch(setCart(arrToCart));
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
-	const removeToCart = () => {
-		const itemsOfProduct = shoppingCart.filter((item) => item === tail);
-		const otherItems = shoppingCart.filter((item) => item !== tail);
-		itemsOfProduct.splice(-1);
-		try {
-			const arrToCart = [...otherItems, ...itemsOfProduct];
-			dispatch(setCart(arrToCart));
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
-	const renderButtonRemove = () => {
-		const filterItems = shoppingCart.filter((item) => item === tail);
-		if (filterItems.length) {
-			return (
-				<Button
-					colorScheme="red"
-					_text={{
-						color: 'white',
-					}}
-					onPress={removeToCart}>
-					{`Quitar uno (${filterItems.length.toString()})`}
-				</Button>
-			);
-		}
-	};
 
 	return (
 		<SafeAreaView
@@ -91,28 +63,45 @@ const SingleProduct = ({navigation, route: {params}}) => {
 					style={{
 						minWidth: '100%',
 					}}>
-					<Center>
+					<Center padding={4}>
 						<Box
 							bg="white"
+							shadow={4}
+							rounded="xl"
 							maxWidth="100%"
 							minWidth="100%"
-							mb={4}
 							key={tail}
 							padding={4}>
+							<Text
+								fontSize="2xl"
+								mb={4}
+								letterSpacing={2}
+								bold
+								textAlign="center"
+								color={colors.primary}
+							>
+								{name.toUpperCase()}
+							</Text>
 							<Image
 								source={{
 									uri: image,
 								}}
-								alt="image base"
-								resizeMode="cover"
+								alt={name}
+								resizeMode="contain"
 								roundedTop="md"
-								style={{height: 360, width: 'auto'}}
+								style={{width: win.width, height: 280 * ratio}}
 								mb={4}
 							/>
+							<View style={{justifyContent: 'center', flexDirection: 'row', flexGrow: 1}}>
+								<ControlsItem
+									shoppingCart={shoppingCart}
+									tail={tail}
+									dispatch={dispatch}
+									contentStyle={{marginBottom: 16, minWidth: 200}}
+									buttonSize={62}
+								/>
+							</View>
 							<Stack mb={4}>
-								<Text color="dark.300" mb={2}>
-									{`Nombre: ${name}`}
-								</Text>
 								<Text color="dark.300" mb={2}>
 									{`Juego: ${gameSeries}`}
 								</Text>
@@ -134,13 +123,6 @@ const SingleProduct = ({navigation, route: {params}}) => {
 										'.',
 									)}`}</Text>
 							</Stack>
-							<Button
-								colorScheme="emerald"
-								onPress={addToCart}
-								mb={4}>
-								Agregar uno
-							</Button>
-							{renderButtonRemove()}
 						</Box>
 					</Center>
 				</View>

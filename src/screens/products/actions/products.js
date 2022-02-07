@@ -30,11 +30,7 @@ const clearAllProducts = () => ({
 	type: CLEAR_ALL_PRODUCTS,
 });
 
-const randomPrice = () => {
-	return 30000;
-	// TODO: crear un valor random
-	return Math.floor(60000 - 20000 + 1) + 20000;
-};
+const randomPrice = (min, max) =>  Math.floor(Math.random() * (max - min)) + min;
 
 /**
  * Obtiene productos desde service
@@ -50,7 +46,7 @@ const getProductsThunk = () => async (dispatch) => {
 		} = response;
 		if (response.status === 200) {
 			const amibosPrice = amiibo.map((item) => {
-				item.price = randomPrice();
+				item.price = randomPrice(10000, 60000);
 				return item;
 			});
 			dispatch(setProducts(amibosPrice));

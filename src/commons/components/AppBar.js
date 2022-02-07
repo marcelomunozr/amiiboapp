@@ -3,13 +3,8 @@ import { TouchableOpacity } from 'react-native';
 import { connect, useSelector } from 'react-redux';
 import {
 	HStack,
-	VStack,
 	Badge,
-	Box,
 	Text,
-	ChevronLeftIcon,
-	SearchIcon,
-	Button,
 } from 'native-base';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
