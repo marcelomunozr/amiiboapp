@@ -58,7 +58,7 @@ const Product = ({data}) => {
 					alt={name}
 					resizeMode="cover"
 					roundedTop="md"
-					style={{height: 220, width: 'auto'}}
+					style={{height: 160, width: 'auto'}}
 					mb={4}
 				/>
 				<Heading size={['md']} mb={2}>

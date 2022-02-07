@@ -15,8 +15,12 @@ const ControlsItem = ({
 
     const quantityOfProduct = () => {
         if (shoppingCart.length) {
-            const quantityOfThisProduct = shoppingCart.filter(product => product === tail);
-            setQuantityInCart(quantityOfThisProduct.length)
+            const findProd = shoppingCart.find(product => product.tail === tail);
+            if (findProd) {
+                setQuantityInCart(findProd.quantity)
+            } else {
+                setQuantityInCart(0)
+            }
         } else {
             setQuantityInCart(0)
         }

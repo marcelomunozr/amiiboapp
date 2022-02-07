@@ -20,18 +20,33 @@ const colors = {
 
 const addToCart = (shoppingCart, tail, dispatch) => () => {
     try {
-        const arrToCart = [...shoppingCart, tail];
+        const arrToCart = [...shoppingCart];
+        const exist = arrToCart.find(prod => tail === prod.tail);
+        if (exist) {
+            exist.quantity ++;
+        } else {
+            arrToCart.push({
+                tail,
+                quantity: 1,
+            })
+        }
         dispatch(setCart(arrToCart));
     } catch (error) {
         console.log(error);
     }
 };
+
 const removeToCart = (shoppingCart, tail, dispatch) => () => {
-    const itemsOfProduct = shoppingCart.filter((item) => item === tail);
-    const otherItems = shoppingCart.filter((item) => item !== tail);
-    itemsOfProduct.splice(-1);
     try {
-        const arrToCart = [...otherItems, ...itemsOfProduct];
+        let arrToCart = [...shoppingCart];
+        const exist = arrToCart.find(prod => tail === prod.tail);
+        if (exist) {
+            if (exist.quantity === 1) {
+                arrToCart = shoppingCart.filter(prod => tail !== prod.tail );
+            } else {
+                exist.quantity--;
+            }
+        }
         dispatch(setCart(arrToCart));
     } catch (error) {
         console.log(error);

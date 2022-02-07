@@ -1,10 +1,9 @@
 import React, {useState, useEffect, memo} from 'react';
 import {connect, useSelector, useDispatch} from 'react-redux';
-import {Center, Container, Heading, Spinner} from 'native-base';
+import {Center, Container, Spinner} from 'native-base';
 import {
 	FlatList,
 	SafeAreaView,
-	ScrollView,
 	StatusBar,
 	useColorScheme,
 	View,
@@ -13,7 +12,6 @@ import {getProductsThunk} from '../actions/products';
 import Product from '../components/Product';
 import AppBar from '../../../commons/components/AppBar';
 import {
-	isAndroid,
 	colors,
 } from '../../../commons/utils/utils';
 

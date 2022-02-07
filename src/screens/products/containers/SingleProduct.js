@@ -48,7 +48,7 @@ const SingleProduct = ({navigation, route: {params}}) => {
 	return (
 		<SafeAreaView
 			style={{minWidth: '100%', flex: 0.5, backgroundColor: colors.primary}}>
-			<AppBar navigation={navigation} title={character} />
+			<AppBar navigation={navigation} title="Detalle producto" />
 			<Container
 				style={{
 					backgroundColor: isDarkMode ? colors.black : colors.white,
