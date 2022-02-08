@@ -30,7 +30,7 @@ const clearAllProducts = () => ({
 	type: CLEAR_ALL_PRODUCTS,
 });
 
-const randomPrice = (min, max) =>  Math.floor(Math.random() * (max - min)) * 10 + min;
+const randomPrice = (min, max) =>  Math.floor(Math.random() * (max - min)) + min;
 
 /**
  * Obtiene productos desde service
