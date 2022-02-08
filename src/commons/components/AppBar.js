@@ -1,5 +1,5 @@
 import React, {memo, useEffect, useState} from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Easing } from 'react-native';
 import { connect, useSelector } from 'react-redux';
 import {
 	HStack,
@@ -13,6 +13,7 @@ import { colors } from '../utils/utils';
 const AppBar = ({
 	title,
 	withSearch,
+	animate,
 }) => {
 	const navigation = useNavigation();
 	const {shoppingCart} = useSelector((state) => state.shoppingCart);
@@ -25,7 +26,10 @@ const AppBar = ({
 	}, [shoppingCart]);
 
 	const renderLeft = () => withSearch ? (
-		<MaterialCommunityIcons name="magnify" size={28} color="white" />
+		null
+		// <TouchableOpacity activeOpacity={0.8} onPress={() => animate(Easing.bounce)}>
+		// 	<MaterialCommunityIcons name="magnify" size={28} color="white" />
+		// </TouchableOpacity>
 		) : (
 		<TouchableOpacity activeOpacity={0.8} onPress={() => navigation.goBack()}>
 			<MaterialCommunityIcons name="chevron-left" size={28} color="white" />	
