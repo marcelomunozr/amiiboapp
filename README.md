@@ -17,5 +17,5 @@
 ![Simulator Screen Shot - iPhone 13 - 2022-02-07 at 18 26 04](https://user-images.githubusercontent.com/29933103/152874583-d21d394f-250b-43d1-8860-67cebdc083c9.png)
 
 ### Mini carrito
-Esta parte es visible desde cualquier pantalla y al presionar sobre el icono deriba al checkout
+Esta parte es visible desde cualquier pantalla y al presionar sobre el icono deriba al detalle del carrito
 ![Simulator Screen Shot - iPhone 13 - 2022-02-07 at 18 23 55](https://user-images.githubusercontent.com/29933103/152874630-3cecc579-39cd-4a13-b008-3e90482358ca.png)
