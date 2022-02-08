@@ -53,6 +53,8 @@ const AllProducts = ({navigation}) => {
 		if (!arrItems?.length || isLoadingProducts) {
 			return loading();
 		}
+		// Se ordenan los productos de manera aleatoria
+		arrItems.sort((a, b) => 0.5 - Math.random());
 		return (
 			arrItems.length && (
 				<View>
@@ -76,7 +78,6 @@ const AllProducts = ({navigation}) => {
 			style={{minWidth: '100%', flex: 0.5, backgroundColor: colors.primary}}>
 			<AppBar title="Productos" withSearch />
 			<Container
-				pt={4}
 				style={{
 					backgroundColor: isDarkMode ? colors.black : colors.white,
 					maxWidth: '100%',

@@ -39,7 +39,7 @@ const ControlsItem = ({
                 ...contentStyle,
             }}
         >
-            <TouchableOpacity activeOpacity={0.8} onPress={addToCart(shoppingCart, tail, dispatch)}>
+            <TouchableOpacity activeOpacity={0.6} onPress={addToCart(shoppingCart, tail, dispatch)}>
                 <MaterialCommunityIcons
                     name="plus-circle"
                     size={buttonSize || 40}

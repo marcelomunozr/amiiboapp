@@ -53,13 +53,13 @@ const AppBar = ({
 	const renderRight = () => {
 		return (
 			<TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Carrito')}>
-					{renderNotifications()}
-					<MaterialCommunityIcons
-						name="cart-outline"
-						size={28}
-						color={colors.white}
-						style={{marginRight: 16 }}
-					/>
+				{renderNotifications()}
+				<MaterialCommunityIcons
+					name="cart-outline"
+					size={28}
+					color={colors.white}
+					style={{marginRight: 16 }}
+				/>
 			</TouchableOpacity>
 		);
 	};
