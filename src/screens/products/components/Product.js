@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
-import { Dimensions, TouchableOpacity } from 'react-native';
+import { Dimensions, TouchableOpacity, useColorScheme } from 'react-native';
 import {
 	Image,
 	Text,
@@ -10,6 +10,9 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import moment from 'moment';
 import 'moment/locale/es';
+import {
+	colors,
+} from '../../../commons/utils/utils';
 import ControlsItem from '../../../commons/components/ControlsItem';
 
 moment.locale('es');
@@ -20,6 +23,7 @@ const Product = ({data}) => {
 	const postionProd = data.index + 1;
 	const esPar = postionProd%2 === 0;
 	const navigation = useNavigation();
+	const isDarkMode = useColorScheme() === 'dark';
 
 	const {
 		image,
@@ -43,7 +47,7 @@ const Product = ({data}) => {
 			}}
 		>
 			<Box
-				bg="white"
+				bg={isDarkMode ? colors.dark_gray : colors.white}
 				shadow={4}
 				rounded="xl"
 				maxWidth="100%"
@@ -61,11 +65,11 @@ const Product = ({data}) => {
 					style={{height: 160, width: 'auto'}}
 					mb={4}
 				/>
-				<Heading size={['md']} mb={2}>
+				<Heading size={['md']} mb={2} color={isDarkMode ? colors.white : colors.dark_gray}>
 					${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
 				</Heading>
 				<Text
-					color="gray.500"
+					color={isDarkMode ? colors.white : colors.dark_gray}//"gray.500"
 					mb={2}
 				>
 					{`${character} - ${gameSeries}`}
