@@ -13,6 +13,7 @@ const colors = {
     white: '#ffffff',
     red: '#ef4444',
     gray: '#d6d3d1',
+    dark_gray: '#292524',
 };
 
 

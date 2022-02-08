@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, useColorScheme } from 'react-native';
 import { View, Text } from 'native-base';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { addToCart, colors, removeToCart } from '../utils/utils';
@@ -12,6 +12,7 @@ const ControlsItem = ({
     buttonSize,
 }) => {
 	const [quantityInCart, setQuantityInCart] = useState(0);
+	const isDarkMode = useColorScheme() === 'dark';
 
     const quantityOfProduct = () => {
         if (shoppingCart.length) {
@@ -53,6 +54,7 @@ const ControlsItem = ({
                 fontSize={18}
                 bold
                 flexGrow={1}
+                color={isDarkMode ? colors.white : colors.dark_gray}
             >
                 {quantityInCart}
             </Text>
